@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/white</color>
+    <color name="colorPrimaryDark">@color/black</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="white">#ffffff</color>
+    <color name="black">#000000</color>
+
+    <color name="fontPrimary">#282a35</color>
+    <color name="fontSecondary">#728DAC</color>
+
+    <color name="inputBox">#EBEEF0</color>
+
+    <color name="colorPrimaryOld">#6200ef</color>
+    <color name="colorPrimaryDarkOld">#3400b4</color>
+
+</resources>
