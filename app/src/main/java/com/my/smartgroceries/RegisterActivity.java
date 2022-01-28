@@ -7,7 +7,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Html;
 import android.text.InputType;
+import android.text.TextUtils;
 import android.util.Log;
+import android.util.Patterns;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -22,7 +24,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.my.smartgroceries.R;
 import com.my.smartgroceries.models.UserData;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -115,12 +116,26 @@ public class RegisterActivity extends AppCompatActivity {
     String semail,spwd,sname,scontact;
     private void validateRegistration()
     {
-        //Add Some Validation
+        //Add Some Validation - Pending
         semail = email.getText().toString();
         spwd = password.getText().toString();
         sname = name.getText().toString();
         scontact = phone.getText().toString();
-        registerUser();
+
+        if(TextUtils.isEmpty(sname))
+            name.setError("This Field Cannot be Empty");
+        else if(TextUtils.isEmpty(scontact))
+            phone.setError("This Field Cannot be Empty");
+        else if(TextUtils.isEmpty(semail))
+            email.setError("This Field Cannot be Empty");
+        else if(!Patterns.EMAIL_ADDRESS.matcher(semail).matches())
+            email.setError("Enter a Valid Email");
+        else if(TextUtils.isEmpty(spwd))
+            password.setError("This Field Cannot be Empty");
+        else if(spwd.length()<6)
+            password.setError("Minimum 6 Character Required");
+        else
+            registerUser();
     }
     private void registerUser()
     {
@@ -155,7 +170,7 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful())
                         {
-                            Toast.makeText(RegisterActivity.this,"Registation Successful",Toast.LENGTH_LONG).show();
+                            Toast.makeText(RegisterActivity.this,"Registration Successful",Toast.LENGTH_LONG).show();
                             finish();
                         }
                         else

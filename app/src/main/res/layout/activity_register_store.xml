@@ -68,6 +68,7 @@
                 android:textColor="@color/fontPrimary"
                 android:fontFamily="@font/roboto_med"
                 android:background="@null"
+                android:maxLength="32"
                 android:textSize="16dp"
                 android:layout_marginStart="10dp"/>
         </LinearLayout>
@@ -107,6 +108,7 @@
                 android:textColor="@color/fontPrimary"
                 android:fontFamily="@font/roboto_med"
                 android:background="@null"
+                android:maxLength="12"
                 android:textSize="16dp"
                 android:layout_marginStart="10dp"/>
         </LinearLayout>
@@ -146,6 +148,7 @@
                 android:textColor="@color/fontPrimary"
                 android:fontFamily="@font/roboto_med"
                 android:background="@null"
+                android:maxLength="42"
                 android:textSize="16dp"
                 android:layout_marginStart="10dp"/>
         </LinearLayout>
@@ -185,6 +188,7 @@
                 android:textColor="@color/fontPrimary"
                 android:fontFamily="@font/roboto_med"
                 android:background="@null"
+                android:maxLength="32"
                 android:textSize="16dp"
                 android:layout_marginStart="10dp"/>
             <ImageButton
@@ -246,6 +250,7 @@
                 android:textColor="@color/fontPrimary"
                 android:fontFamily="@font/roboto_med"
                 android:background="@null"
+                android:maxLength="42"
                 android:textSize="16dp"
                 android:layout_marginStart="10dp"/>
         </LinearLayout>
@@ -284,11 +289,12 @@
                 android:layout_weight="74"
                 android:paddingTop="15dp"
                 android:paddingBottom="15dp"
-                android:maxLines="4"
+                android:maxLines="3"
                 android:hint="Enter shop address here"
                 android:textColor="@color/fontPrimary"
                 android:fontFamily="@font/roboto_med"
                 android:background="@null"
+                android:maxLength="100"
                 android:textSize="16dp"
                 android:layout_marginStart="10dp"/>
         </LinearLayout>
@@ -322,11 +328,12 @@
                 android:layout_width="0dp"
                 android:layout_height="40dp"
                 android:layout_weight="74"
-                android:inputType="textPersonName"
+                android:inputType="number"
                 android:hint="Enter Pincode here"
                 android:textColor="@color/fontPrimary"
                 android:fontFamily="@font/roboto_med"
                 android:background="@null"
+                android:maxLength="6"
                 android:textSize="16dp"
                 android:layout_marginStart="10dp"/>
         </LinearLayout>

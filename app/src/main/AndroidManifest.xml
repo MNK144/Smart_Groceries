@@ -9,8 +9,10 @@
         android:roundIcon="@mipmap/shop"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".RegisterStoreActivity"
-            android:windowSoftInputMode="stateHidden"></activity>
+        <activity android:name=".ForgotActivity"></activity>
+        <activity
+            android:name=".RegisterStoreActivity"
+            android:windowSoftInputMode="stateHidden" />
         <activity android:name=".RegisterActivity" />
         <activity android:name=".StoreProductsActivity" />
         <activity android:name=".TestActivity" />

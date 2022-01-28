@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
         passwordShowButton = findViewById(R.id.loginpassshow);
         password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         isPasswordHidden = true;
-        loginButton = findViewById(R.id.loginbtn);
+        loginButton = findViewById(R.id.forgotbtn);
         forgot = findViewById(R.id.loginforgot);
         reg = findViewById(R.id.loginregbtn);
 
@@ -83,6 +83,7 @@ public class LoginActivity extends AppCompatActivity {
 
         //Auth process
         loginButton.setOnClickListener(view -> {
+            //Handle Validation Here (It can be optional since its login)
             String semail, spassword;
             semail = email.getText().toString();
             spassword = password.getText().toString();
@@ -92,7 +93,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
         forgot.setOnClickListener(view -> {
-
+            Intent i = new Intent(LoginActivity.this,ForgotActivity.class);
+            startActivity(i);
         });
         reg.setOnClickListener(view -> {
             Intent i = new Intent(LoginActivity.this,RegisterActivity.class);

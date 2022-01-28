@@ -63,6 +63,7 @@
             android:textColor="@color/fontPrimary"
             android:fontFamily="@font/roboto_med"
             android:background="@null"
+            android:maxLength="32"
             android:textSize="16dp"
             android:layout_marginStart="10dp"/>
     </LinearLayout>
@@ -102,6 +103,7 @@
             android:textColor="@color/fontPrimary"
             android:fontFamily="@font/roboto_med"
             android:background="@null"
+            android:maxLength="12"
             android:textSize="16dp"
             android:layout_marginStart="10dp"/>
     </LinearLayout>
@@ -141,6 +143,7 @@
             android:textColor="@color/fontPrimary"
             android:fontFamily="@font/roboto_med"
             android:background="@null"
+            android:maxLength="42"
             android:textSize="16dp"
             android:layout_marginStart="10dp"/>
     </LinearLayout>
@@ -180,6 +183,7 @@
             android:textColor="@color/fontPrimary"
             android:fontFamily="@font/roboto_med"
             android:background="@null"
+            android:maxLength="32"
             android:textSize="16dp"
             android:layout_marginStart="10dp"/>
         <ImageButton
