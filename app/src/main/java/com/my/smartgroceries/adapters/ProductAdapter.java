@@ -1,6 +1,7 @@
 package com.my.smartgroceries.adapters;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,24 +9,38 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+import com.my.smartgroceries.CONST;
 import com.my.smartgroceries.R;
-import com.my.smartgroceries.models.OrderedProductData;
+import com.my.smartgroceries.SpecialComponents.CartManager;
+import com.my.smartgroceries.SpecialComponents.CartUpdateListener;
 import com.my.smartgroceries.models.ProductData;
-import java.util.HashMap;
 import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyHolder> {
 
-    List<ProductData> dataList;
-    HashMap<Integer,OrderedProductData> orderList = new HashMap<>();
+    private List<ProductData> dataList;
+    private List<ProductData> orderList;
+    private String storeid;
+    private CartManager cartManager;
     private Context context;
 
-    public ProductAdapter(List<ProductData> dataList,Context context) {
+    private boolean isAdapterForCart;
+    private CartUpdateListener cartUpdateListener;
+
+    public ProductAdapter(List<ProductData> dataList,Context context,String storeid,boolean isAdapterForCart) {
         this.dataList = dataList;
         this.context = context;
+        this.storeid = storeid;
+        this.isAdapterForCart = isAdapterForCart;
+        cartManager = CartManager.getInstance();
+        orderList = cartManager.getOrderList();
+    }
+
+    public void setCartUpdateListener(CartUpdateListener cartUpdateListener)
+    {
+        this.cartUpdateListener = cartUpdateListener;
     }
 
     @NonNull
@@ -41,11 +56,11 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyHolder
         ProductData data = dataList.get(position);
         holder.name.setText(data.getName());
         holder.measure.setText(data.getMeasure());
-        holder.price.setText(data.getPrice()+"₹");
+        holder.price.setText(CONST.RUPEES_SYMBOL +data.getPrice());
 
         //Handling Current Qty Selection
-        OrderedProductData orderedProductData = orderList.get(position);
-        if(!orderList.containsKey(position))
+        Log.d("ProductAdapter","Product name="+data.getName()+", selectedQuantity="+data.getSelectedQuantity()+", storeid="+storeid+", CartManagerStoreID="+cartManager.getStoreId());
+        if( data.getSelectedQuantity()==0 || (!storeid.equals(cartManager.getStoreId())) )
         {
             holder.plus.setVisibility(View.GONE);
             holder.minus.setVisibility(View.GONE);
@@ -55,40 +70,56 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyHolder
         {
             holder.plus.setVisibility(View.VISIBLE);
             holder.minus.setVisibility(View.VISIBLE);
-            holder.qty.setText(orderedProductData.getQuantity());
+            holder.qty.setText(""+data.getSelectedQuantity());
         }
 
 
         holder.add.setOnClickListener(view -> {
             //Action
-            if(!orderList.containsKey(position)) {
-                OrderedProductData orderedProductData1 = new OrderedProductData(data.getId(),1);
-                orderList.put(position, orderedProductData1);
+            if(!storeid.equals(cartManager.getStoreId()))
+            {
+                cartManager.init(storeid);
+            }
+            if( data.getSelectedQuantity()==0 ) {
+                data.setSelectedQuantity(1);
+                cartManager.addToTotal(Integer.valueOf(data.getPrice()));
+                if (isAdapterForCart) cartUpdateListener.onCartValueChange();
                 holder.plus.setVisibility(View.VISIBLE);
                 holder.minus.setVisibility(View.VISIBLE);
                 holder.qty.setText("1");
+                orderList.add(data);
             }
         });
 
         holder.plus.setOnClickListener(view -> {
-            OrderedProductData d = orderList.get(position);
-            if(d.getQuantity() == Integer.valueOf(data.getQuantity())) {
+            if(data.getSelectedQuantity() == Integer.valueOf(data.getQuantity())) {
                 Toast.makeText(context,"Can not add more than available in Stock",Toast.LENGTH_SHORT).show();
             } else {
-                d.setQuantity(d.getQuantity() + 1);
-                holder.qty.setText("" + d.getQuantity());
+                data.setSelectedQuantity(data.getSelectedQuantity()+1);
+                cartManager.addToTotal(Integer.valueOf(data.getPrice()));
+                if (isAdapterForCart) cartUpdateListener.onCartValueChange();
+                holder.qty.setText("" + data.getSelectedQuantity());
             }
         });
         holder.minus.setOnClickListener(view -> {
-            OrderedProductData d = orderList.get(position);
-            d.setQuantity(d.getQuantity()-1);
-            if(d.getQuantity()==0) {
+            data.setSelectedQuantity(data.getSelectedQuantity()-1);
+            cartManager.removeFromTotal(Integer.valueOf(data.getPrice()));
+            if (isAdapterForCart) cartUpdateListener.onCartValueChange();
+
+            if(data.getSelectedQuantity()==0) {
                 orderList.remove(position);
+                if(orderList.size()==0) {
+                    cartManager.removeStoreID();
+                    if(isAdapterForCart) cartUpdateListener.onCartEmpty();
+                }
+
                 holder.plus.setVisibility(View.GONE);
                 holder.minus.setVisibility(View.GONE);
                 holder.qty.setText("Add");
+                this.notifyDataSetChanged();
             } else {
-                holder.qty.setText(""+d.getQuantity());
+                holder.qty.setText(""+data.getSelectedQuantity());
+
             }
 
         });
@@ -116,4 +147,5 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyHolder
             minus = itemView.findViewById(R.id.productminus);
         }
     }
+
 }

@@ -1,5 +1,7 @@
 package com.my.smartgroceries.models;
 
+import com.google.firebase.database.Exclude;
+
 public class ProductData {
     String id;
     String name;
@@ -77,4 +79,10 @@ public class ProductData {
     public void setImageurl(String imageurl) {
         this.imageurl = imageurl;
     }
+
+
+    @Exclude private int selectedQuantity;
+    @Exclude public int getSelectedQuantity() { return selectedQuantity; }
+    @Exclude public void setSelectedQuantity(int selectedQuantity) { this.selectedQuantity=selectedQuantity; }
+
 }

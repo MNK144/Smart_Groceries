@@ -8,4 +8,6 @@ public class CONST {
     public static final String DB_GLOBALDATA = "GlobalData";
 
     public static final String CURRENT_VERSION = "1.0";
+
+    public static final String RUPEES_SYMBOL = "₹";
 }

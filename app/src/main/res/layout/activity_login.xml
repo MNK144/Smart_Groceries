@@ -133,7 +133,7 @@
         android:text="Forgot Password?"/>
 
     <Button
-        android:id="@+id/forgotbtn"
+        android:id="@+id/loginbtn"
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:layout_below="@id/loginforgot"
@@ -155,7 +155,7 @@
         android:layout_marginTop="42dp"
         android:layout_centerHorizontal="true"
         android:gravity="center"
-        android:layout_below="@id/forgotbtn">
+        android:layout_below="@id/loginbtn">
 
         <TextView
             android:id="@+id/logintnew"

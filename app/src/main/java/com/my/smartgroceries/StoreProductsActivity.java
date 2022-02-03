@@ -15,10 +15,12 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.my.smartgroceries.R;
+import com.my.smartgroceries.SpecialComponents.CartManager;
 import com.my.smartgroceries.adapters.ProductAdapter;
 import com.my.smartgroceries.models.ProductData;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class StoreProductsActivity extends AppCompatActivity {
@@ -27,6 +29,7 @@ public class StoreProductsActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ProductAdapter productAdapter;
     List<ProductData> dataList = new ArrayList<>();
+    HashMap<String,Integer> orderListQuantity = new HashMap<>();
 
     DatabaseReference databaseReference;
     @Override
@@ -40,8 +43,10 @@ public class StoreProductsActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.productlist);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(StoreProductsActivity.this));
-        productAdapter = new ProductAdapter(dataList,StoreProductsActivity.this);
+        productAdapter = new ProductAdapter(dataList,StoreProductsActivity.this,id,false);
         recyclerView.setAdapter(productAdapter);
+
+        if(CartManager.getInstance().getStoreId().equals(id)) loadOrderListQuantity();
 
         databaseReference = FirebaseDatabase.getInstance().getReference(CONST.DB_PRODUCTDATA).child(id);
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -50,6 +55,9 @@ public class StoreProductsActivity extends AppCompatActivity {
                 for(DataSnapshot snapshot1:snapshot.getChildren())
                 {
                     ProductData data = snapshot1.getValue(ProductData.class);
+                    String id = data.getId();
+                    if(orderListQuantity.containsKey(id))
+                        data.setSelectedQuantity(orderListQuantity.get(id));
                     dataList.add(data);
                 }
                 productAdapter.notifyDataSetChanged();
@@ -59,5 +67,13 @@ public class StoreProductsActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(),"Failed to fetch the product data",Toast.LENGTH_LONG).show();
             }
         });
+    }
+
+    private void loadOrderListQuantity()
+    {
+        for(ProductData data: CartManager.getInstance().getOrderList())
+        {
+            orderListQuantity.put(data.getId(),data.getSelectedQuantity());
+        }
     }
 }

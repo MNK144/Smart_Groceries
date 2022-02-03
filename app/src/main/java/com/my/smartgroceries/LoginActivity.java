@@ -51,7 +51,7 @@ public class LoginActivity extends AppCompatActivity {
         passwordShowButton = findViewById(R.id.loginpassshow);
         password.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
         isPasswordHidden = true;
-        loginButton = findViewById(R.id.forgotbtn);
+        loginButton = findViewById(R.id.loginbtn);
         forgot = findViewById(R.id.loginforgot);
         reg = findViewById(R.id.loginregbtn);
 
