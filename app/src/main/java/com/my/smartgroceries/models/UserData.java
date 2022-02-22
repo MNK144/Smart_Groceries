@@ -5,15 +5,15 @@ public class UserData {
     String name;
     String contact;
     String email;
-    Boolean isVendor;
+    Boolean IsVendor;
     String refStoreData;
 
-    public UserData(String uid, String name, String contact, String email, Boolean isVendor, String refStoreData) {
+    public UserData(String uid, String name, String contact, String email, Boolean IsVendor, String refStoreData) {
         this.uid = uid;
         this.name = name;
         this.contact = contact;
         this.email = email;
-        this.isVendor = isVendor;
+        this.IsVendor = IsVendor;
         this.refStoreData = refStoreData;
     }
 
@@ -52,12 +52,12 @@ public class UserData {
         this.email = email;
     }
 
-    public Boolean getVendor() {
-        return isVendor;
+    public Boolean getIsVendor() {
+        return IsVendor;
     }
 
-    public void setVendor(Boolean vendor) {
-        isVendor = vendor;
+    public void setIsVendor(Boolean IsVendor) {
+        IsVendor = IsVendor;
     }
 
     public String getRefStoreData() {

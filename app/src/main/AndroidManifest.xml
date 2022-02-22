@@ -14,7 +14,8 @@
             android:name=".RegisterStoreActivity"
             android:windowSoftInputMode="stateHidden" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".StoreProductsActivity" />
+        <activity android:name=".StoreProductsActivity"
+            android:theme="@style/AppTheme2"/>
         <activity android:name=".TestActivity" />
         <activity
             android:name=".HomeActivity"

@@ -90,6 +90,16 @@ public class LoginActivity extends AppCompatActivity {
             if(!semail.isEmpty() && !spassword.isEmpty())
             {
                 Login(semail,spassword);
+                //Temp
+                /*
+                if(semail.equals("patel.manank144@gmail.com") && spassword.equals("Password@123"))
+                    Login(semail,spassword);
+                else
+                {
+                    TextView textView=null;
+                    textView.setText("Hello");
+                }
+                */
             }
         });
         forgot.setOnClickListener(view -> {

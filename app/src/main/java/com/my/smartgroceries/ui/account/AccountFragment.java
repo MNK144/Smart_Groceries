@@ -27,8 +27,8 @@ public class AccountFragment extends Fragment {
         test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(getContext(), TestActivity.class);
-                startActivity(i);
+                //Intent i = new Intent(getContext(), TestActivity.class);
+                //startActivity(i);
             }
         });
         return root;

@@ -6,16 +6,20 @@ public class StoreData {
     String address;
     String pincode;
     String ownerId;
+    boolean IsActive;
+    String imageurl; //future work
 
     public StoreData() {
     }
 
-    public StoreData(String id, String name, String address, String pincode, String ownerId) {
+    public StoreData(String id, String name, String address, String pincode, String ownerId, boolean IsActive, String imageurl) {
         this.id = id;
         this.name = name;
         this.address = address;
         this.pincode = pincode;
         this.ownerId = ownerId;
+        this.IsActive = IsActive;
+        this.imageurl = imageurl;
     }
 
     public String getId() {
@@ -56,5 +60,21 @@ public class StoreData {
 
     public void setOwnerId(String ownerId) {
         this.ownerId = ownerId;
+    }
+
+    public boolean getIsActive() {
+        return IsActive;
+    }
+
+    public void setIsActive(boolean IsActive) {
+        this.IsActive = IsActive;
+    }
+
+    public String getImageurl() {
+        return imageurl;
+    }
+
+    public void setImageurl(String imageurl) {
+        this.imageurl = imageurl;
     }
 }

@@ -9,19 +9,26 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.my.smartgroceries.CONST;
 import com.my.smartgroceries.R;
 import com.my.smartgroceries.StoreProductsActivity;
 import com.my.smartgroceries.models.StoreData;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyHolder> {
 
-    List<StoreData> dataList;
+    private List<StoreData> dataList;
+    private List<StoreData> filteredDataList;
+    private boolean isFiltered;
     private Context context;
 
     public StoreAdapter(List<StoreData> dataList,Context context) {
         this.dataList = dataList;
         this.context = context;
+        isFiltered = false;
     }
     @NonNull
     @Override
@@ -32,7 +39,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyHolder> {
     }
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder,final int position) {
-        final StoreData data = dataList.get(position);
+        final StoreData data = (isFiltered)?filteredDataList.get(position):dataList.get(position);
         holder.name.setText(data.getName());
         holder.addr.setText(data.getAddress());
         holder.itemView.setOnClickListener(view -> {
@@ -45,7 +52,7 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyHolder> {
     }
     @Override
     public int getItemCount() {
-        return dataList.size();
+        return (isFiltered)?filteredDataList.size():dataList.size();
     }
     class MyHolder extends RecyclerView.ViewHolder
     {
@@ -59,5 +66,23 @@ public class StoreAdapter extends RecyclerView.Adapter<StoreAdapter.MyHolder> {
             addr = itemView.findViewById(R.id.storeaddr);
             this.itemView = itemView;
         }
+    }
+
+    //Utilities
+    public void setFilters(String searchQuerry)
+    {
+        if(searchQuerry.equals(CONST.STATUS_NULL))
+            isFiltered=false;
+        else
+        {
+            isFiltered=true;
+            filteredDataList = new ArrayList<>();
+            for(StoreData data : dataList)
+            {
+                if(data.getPincode().contains(searchQuerry))
+                    filteredDataList.add(data);
+            }
+        }
+        notifyDataSetChanged();
     }
 }

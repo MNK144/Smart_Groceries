@@ -194,7 +194,7 @@ public class RegisterStoreActivity extends AppCompatActivity {
     {
         storeDatabaseReference = FirebaseDatabase.getInstance().getReference(CONST.DB_STOREDATA);
         sid = storeDatabaseReference.push().getKey();
-        StoreData storeData = new StoreData(sid,sstorename,sstoreaddr,sstorepincode,UID);
+        StoreData storeData = new StoreData(sid,sstorename,sstoreaddr,sstorepincode,UID,true,CONST.STATUS_NULL);
         storeDatabaseReference.child(sid).setValue(storeData)
                 .addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override

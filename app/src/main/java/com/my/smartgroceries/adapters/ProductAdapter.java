@@ -16,12 +16,17 @@ import com.my.smartgroceries.R;
 import com.my.smartgroceries.SpecialComponents.CartManager;
 import com.my.smartgroceries.SpecialComponents.CartUpdateListener;
 import com.my.smartgroceries.models.ProductData;
+import com.my.smartgroceries.models.StoreData;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyHolder> {
 
     private List<ProductData> dataList;
     private List<ProductData> orderList;
+    private List<ProductData> filteredDataList;
+    private boolean isFiltered;
     private String storeid;
     private CartManager cartManager;
     private Context context;
@@ -53,7 +58,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyHolder
 
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder,final int position) {
-        ProductData data = dataList.get(position);
+        ProductData data = (isFiltered)?filteredDataList.get(position):dataList.get(position);
         holder.name.setText(data.getName());
         holder.measure.setText(data.getMeasure());
         holder.price.setText(CONST.RUPEES_SYMBOL +data.getPrice());
@@ -127,7 +132,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyHolder
 
     @Override
     public int getItemCount() {
-        return dataList.size();
+        return (isFiltered)?filteredDataList.size():dataList.size();
     }
 
     class MyHolder extends RecyclerView.ViewHolder{
@@ -148,4 +153,22 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyHolder
         }
     }
 
+    //Utilities
+    public void setFilters(String searchQuerry)
+    {
+        if(searchQuerry.equals(CONST.STATUS_NULL))
+            isFiltered=false;
+        else
+        {
+            isFiltered=true;
+            filteredDataList = new ArrayList<>();
+            Log.d("PA","Run");
+            for(ProductData data : dataList)
+            {
+                if(data.getName().toLowerCase().contains(searchQuerry.toLowerCase()))
+                    filteredDataList.add(data);
+            }
+        }
+        notifyDataSetChanged();
+    }
 }

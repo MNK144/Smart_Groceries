@@ -3,24 +3,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <include
+        android:id="@+id/action_bar"
+        layout="@layout/actionbar_main"
+        />
+
     <TextView
         android:id="@+id/text_home"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="12dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="12dp"
-        android:textSize="24sp"
-        android:textColor="@color/fontPrimary"
+        android:textSize="21sp"
+        android:textColor="@color/fontSecondary"
         android:fontFamily="@font/roboto_med"
+        android:layout_below="@id/action_bar"
         android:text="All Grocery Stores"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/storelist"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/text_home"
+        android:layout_below="@id/action_bar"
+        android:paddingTop="5dp"
         android:layout_marginStart="8dp"
         android:layout_marginEnd="8dp"/>
 

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal"
+    android:layout_width="match_parent"
+    android:gravity="center"
+    android:background="@color/inputBox"
+    android:weightSum="10"
+    android:layout_height="60dp">
+
+    <TextView
+        android:visibility="visible"
+        android:id="@+id/actionbarMainText"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="8"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="20dp"
+        android:textSize="19sp"
+        android:textColor="@color/fontPrimary"
+        android:fontFamily="@font/roboto_med"
+        android:text="All Grocery Stores"/>
+
+    <EditText
+        android:visibility="gone"
+        android:id="@+id/actionbarMainEditText"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_weight="8"
+        android:layout_marginStart="9dp"
+        android:layout_marginEnd="9dp"
+        android:background="@color/inputBox"
+        android:textColor="@color/fontSecondary"
+        android:textSize="17sp"
+        android:padding="12dp"
+        android:inputType="text"
+        android:maxLength="50"
+        android:maxLines="1"
+        android:imeOptions="actionSearch"
+        android:hint="Enter Pincode"/>
+
+    <ImageView
+        android:visibility="visible"
+        android:id="@+id/actionBarSearch"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_weight="2"
+        android:layout_marginEnd="-10dp"
+        android:tint="@color/fontSecondary"
+        android:src="@drawable/search"/>
+
+</LinearLayout>
