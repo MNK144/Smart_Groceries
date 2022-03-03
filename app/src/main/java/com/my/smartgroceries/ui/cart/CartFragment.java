@@ -6,6 +6,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,6 +19,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.my.smartgroceries.CONST;
+import com.my.smartgroceries.OrderConfirmActivity;
 import com.my.smartgroceries.R;
 import com.my.smartgroceries.SpecialComponents.CartManager;
 import com.my.smartgroceries.SpecialComponents.CartUpdateListener;
@@ -39,6 +41,7 @@ public class CartFragment extends Fragment {
     ImageView storeImage;
     TextView storeName, storeAddress;
     TextView itemTotal;
+    Button orderButton;
 
     View cartEmptyLayout,cartPresentLayout;
     CartManager cartManager;
@@ -57,6 +60,7 @@ public class CartFragment extends Fragment {
             storeImage = root.findViewById(R.id.storeimage);
             storeName = root.findViewById(R.id.storename);
             storeAddress = root.findViewById(R.id.storeaddr);
+            orderButton = root.findViewById(R.id.orderbtn);
             setStoreData();
 
             itemTotal.setText(CONST.RUPEES_SYMBOL+cartManager.getTotal());
@@ -76,6 +80,11 @@ public class CartFragment extends Fragment {
                 }
             });
             recyclerView.setAdapter(productAdapter);
+            orderButton.setOnClickListener(view -> {
+                Intent i = new Intent(getContext(), OrderConfirmActivity.class);
+                pauseflag=true;
+                startActivity(i);
+            });
         }
 
         return root;
@@ -140,6 +149,7 @@ public class CartFragment extends Fragment {
     public void onResume() {
         super.onResume();
         if (pauseflag) {
+            checkCart();
             productAdapter.notifyDataSetChanged();
             updateTotal();
             pauseflag = false;

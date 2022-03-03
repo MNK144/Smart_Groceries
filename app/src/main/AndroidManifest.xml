@@ -9,13 +9,16 @@
         android:roundIcon="@mipmap/shop"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ForgotActivity"></activity>
+        <activity android:name=".OrderConfirmActivity"
+            android:theme="@style/AppTheme2"/>
+        <activity android:name=".ForgotActivity" />
         <activity
             android:name=".RegisterStoreActivity"
             android:windowSoftInputMode="stateHidden" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".StoreProductsActivity"
-            android:theme="@style/AppTheme2"/>
+        <activity
+            android:name=".StoreProductsActivity"
+            android:theme="@style/AppTheme2" />
         <activity android:name=".TestActivity" />
         <activity
             android:name=".HomeActivity"

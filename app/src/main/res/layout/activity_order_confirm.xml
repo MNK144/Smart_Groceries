@@ -5,42 +5,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:paddingBottom="20dp"
         android:orientation="vertical">
 
-        <!--If Cart Items Not Present-->
-        <RelativeLayout
-            android:id="@+id/cartEmptyLayout"
-            android:layout_height="550dp"
+        <TextView
             android:layout_width="match_parent"
-            android:visibility="visible">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="vertical"
-                android:gravity="center"
-                android:layout_centerInParent="true">
-                <ImageView
-                    android:layout_width="90dp"
-                    android:layout_height="90dp"
-                    android:src="@drawable/groceries"/>
-                <TextView
-                    android:id="@+id/text_home"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_marginTop="12dp"
-                    android:layout_marginEnd="12dp"
-                    android:textSize="20sp"
-                    android:textColor="@color/fontSecondary"
-                    android:fontFamily="@font/roboto_med"
-                    android:text="Your Cart is Empty"/>
-            </LinearLayout>
-        </RelativeLayout>
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="12dp"
+            android:textSize="20sp"
+            android:textColor="@color/fontPrimary"
+            android:fontFamily="@font/roboto_med"
+            android:text="Confirm Order Details:"/>
 
         <!--If Cart Items Present-->
         <LinearLayout
@@ -48,8 +29,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:paddingBottom="20dp"
-            android:orientation="vertical"
-            android:visibility="gone">
+            android:orientation="vertical">
 
             <LinearLayout
                 android:id="@+id/storelayout"
@@ -94,42 +74,37 @@
                         android:maxLines="3"/>
                 </LinearLayout>
             </LinearLayout>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="12dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
-                android:layout_marginEnd="12dp"
-                android:textSize="20sp"
-                android:textColor="@color/fontPrimary"
-                android:fontFamily="@font/roboto_med"
-                android:text="Your Order:"/>
-<!--                Change Layout by making each items multiplied -->
-<!--                values and changing layout according to cart    -->
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/cartproducts"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                android:layout_marginStart="10dp"
-                android:paddingEnd="10dp"
-                tools:listitem="@layout/productlisting"
-                tools:itemCount="3"/>
 
-<!--            <view-->
+<!--            <TextView-->
 <!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="2dp"-->
-<!--                android:layout_marginStart="15dp"-->
-<!--                android:layout_marginEnd="15dp"-->
-<!--                android:backgroundTint="@color/fontPrimary"-->
-<!--                />-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:layout_marginStart="12dp"-->
+<!--                android:layout_marginTop="8dp"-->
+<!--                android:layout_marginBottom="8dp"-->
+<!--                android:layout_marginEnd="12dp"-->
+<!--                android:textSize="20sp"-->
+<!--                android:textColor="@color/fontPrimary"-->
+<!--                android:fontFamily="@font/roboto_med"-->
+<!--                android:text="Your Order:"/>-->
+
+
+<!--            <androidx.recyclerview.widget.RecyclerView-->
+<!--                android:id="@+id/cartproducts"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"-->
+<!--                android:layout_marginStart="10dp"-->
+<!--                android:paddingEnd="10dp"-->
+<!--                tools:listitem="@layout/productlisting"-->
+<!--                tools:itemCount="3"/>-->
+
+
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="20dp"
-                android:layout_marginTop="8dp"
+                android:layout_marginTop="5dp"
                 android:layout_marginBottom="8dp"
                 android:layout_marginEnd="20dp"
                 android:weightSum="10">
@@ -141,7 +116,7 @@
                     android:textSize="18sp"
                     android:layout_marginStart="4dp"
                     android:fontFamily="@font/roboto_med"
-                    android:text="Item Total"/>
+                    android:text="Order Item Total"/>
                 <TextView
                     android:id="@+id/itemtotal"
                     android:layout_width="0dp"
@@ -155,13 +130,57 @@
                     android:text="₹100"/>
             </LinearLayout>
 
-<!--            <view-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="2dp"-->
-<!--                android:layout_marginStart="15dp"-->
-<!--                android:layout_marginEnd="15dp"-->
-<!--                android:backgroundTint="@color/fontPrimary"-->
-<!--                />-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="5"
+                    android:textColor="@color/fontPrimary"
+                    android:textSize="18sp"
+                    android:layout_marginStart="4dp"
+                    android:fontFamily="@font/roboto_med"
+                    android:text="Enter Address for Delivery:"/>
+
+                <LinearLayout
+                    android:id="@+id/lorderaddr"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/inputbox1"
+                    android:layout_marginTop="10dp"
+                    android:gravity="center_vertical"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp">
+
+                    <EditText
+                        android:id="@+id/orderaddr"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="15dp"
+                        android:gravity="top"
+                        android:paddingBottom="15dp"
+                        android:maxLines="4"
+                        android:minLines="2"
+                        android:hint="123 ABC Apartments,\nNaranpura, Ahmedabad..."
+                        android:textColor="@color/fontPrimary"
+                        android:fontFamily="@font/roboto_med"
+                        android:background="@null"
+                        android:maxLength="100"
+                        android:textSize="16dp"
+                        android:layout_marginStart="10dp"/>
+                </LinearLayout>
+
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -184,11 +203,12 @@
                         android:layout_height="wrap_content"
                         android:textAlignment="textStart"
                         android:textColor="@color/fontSecondary"
-                        android:text="Select Address\nOn Confirmation Screen"/>
+                        android:layout_marginEnd="8dp"
+                        android:text="Payment will be handled by Vendor on Delivery"/>
                 </LinearLayout>
 
                 <Button
-                    android:id="@+id/orderbtn"
+                    android:id="@+id/placeorderbtn"
                     android:layout_width="0dp"
                     android:layout_height="55dp"
                     android:layout_weight="1"
@@ -197,7 +217,7 @@
                     android:textAllCaps="false"
                     android:fontFamily="@font/roboto_med"
                     android:textSize="18sp"
-                    android:text="Order"/>
+                    android:text="Place Order"/>
 
             </LinearLayout>
 
