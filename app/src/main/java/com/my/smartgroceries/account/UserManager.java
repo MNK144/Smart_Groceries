@@ -8,7 +8,7 @@ import com.my.smartgroceries.models.UserData;
 public class UserManager {
     private static String UID;
     private static UserData userData;
-    private static UserLoad userLoad;
+    //private static UserLoad userLoad;
     public static Boolean isUserLoaded=false;
     public static Boolean User_Active = false;
 
@@ -24,15 +24,15 @@ public class UserManager {
             return true;
         }
     }
-    public static void setUserLoad(UserLoad userLoad)
-    {
-        UserManager.userLoad=userLoad;
-        isUserLoaded=true;
-    }
+    //public static void setUserLoad(UserLoad userLoad)
+    //{
+    //    UserManager.userLoad=userLoad;
+    //    isUserLoaded=true;
+    //}
     public static void setUserData(UserData userData)
     {
         UserManager.userData=userData;
-        userLoad.check(userData);
+        //userLoad.check(userData);
     }
 
     public static void Login(final String UID,final UserData userData,final Context context)
@@ -44,13 +44,12 @@ public class UserManager {
     }
     private static void loginSession(final Context context)
     {
-        /*
         DatabaseHelper db = new DatabaseHelper(context);
         if(!db.setUser(UID))
         {
             Toast.makeText(context, "Failed to make Session",Toast.LENGTH_LONG).show();
         }
-        db.close();*/
+        db.close();
     }
     public static void Logout(final Context context)
     {

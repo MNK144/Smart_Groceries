@@ -11,17 +11,21 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.my.smartgroceries.LoginActivity;
+import com.my.smartgroceries.OrderHistoryActivity;
 import com.my.smartgroceries.R;
+import com.my.smartgroceries.SpecialComponents.CartManager;
 import com.my.smartgroceries.TestActivity;
+import com.my.smartgroceries.account.UserManager;
 
 public class AccountFragment extends Fragment {
+
+    Button orderHistory,logout;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
         View root = inflater.inflate(R.layout.fragment_account, container, false);
-        final TextView textView = root.findViewById(R.id.text_notifications);
-        textView.setText("This is my Account");
 
         Button test = root.findViewById(R.id.ata);
         test.setOnClickListener(new View.OnClickListener() {
@@ -31,6 +35,22 @@ public class AccountFragment extends Fragment {
                 //startActivity(i);
             }
         });
+
+        orderHistory = root.findViewById(R.id.orderhistory);
+        orderHistory.setOnClickListener(view -> {
+            Intent i = new Intent(getContext(), OrderHistoryActivity.class);
+            startActivity(i);
+        });
+
+        logout = root.findViewById(R.id.logout);
+        logout.setOnClickListener(view -> {
+            CartManager.getInstance().resetCartManager();
+            UserManager.Logout(getContext());
+            Intent i = new Intent(getContext(), LoginActivity.class);
+            startActivity(i);
+            getActivity().finish();
+        });
+
         return root;
     }
 }

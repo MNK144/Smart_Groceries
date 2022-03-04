@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="4dp"
+    android:padding="4dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/background1"
+        android:padding="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:orientation="horizontal"
+            android:weightSum="3">
+            <TextView
+                android:id="@+id/orderStoreName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="ABCD General Stores"
+                android:textColor="@color/fontPrimary"
+                android:fontFamily="@font/roboto_med"
+                android:textSize="20sp"
+                android:maxLines="1"/>
+            <TextView
+                android:id="@+id/orderStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:textAlignment="viewEnd"
+                android:text="Placed"
+                android:layout_gravity="center_vertical"
+                android:textColor="@color/fontSecondary"
+                android:fontFamily="@font/roboto_med"
+                android:textSize="17sp"
+                android:maxLines="1"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="6dp"
+            android:orientation="horizontal"
+            android:weightSum="10">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:layout_marginTop="2dp"
+                android:layout_weight="6">
+                <TextView
+                    android:id="@+id/orderItems"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_med"
+                    android:maxLines="1"
+                    android:text="Order Items: 12"
+                    android:textColor="@color/fontPrimary"
+                    android:textSize="17sp" />
+                <TextView
+                    android:id="@+id/orderTotal"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/roboto_med"
+                    android:maxLines="1"
+                    android:text="Order Total: ₹500"
+                    android:textColor="@color/fontPrimary"
+                    android:textSize="17sp" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/orderViewBtn"
+                android:layout_width="0dp"
+                android:layout_height="51dp"
+                android:layout_weight="4"
+                android:background="@drawable/button1"
+                android:textColor="@color/white"
+                android:textAllCaps="false"
+                android:fontFamily="@font/roboto_med"
+                android:textSize="17sp"
+                android:text="View Details"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

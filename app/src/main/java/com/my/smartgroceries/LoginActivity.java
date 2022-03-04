@@ -87,6 +87,10 @@ public class LoginActivity extends AppCompatActivity {
             String semail, spassword;
             semail = email.getText().toString();
             spassword = password.getText().toString();
+
+            // TOD remove hardcoded login auth
+            //Login("patel.manank144@gmail.com","Password@123");
+
             if(!semail.isEmpty() && !spassword.isEmpty())
             {
                 Login(semail,spassword);

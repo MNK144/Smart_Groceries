@@ -67,7 +67,7 @@ public class OrderConfirmActivity extends AppCompatActivity {
             {
                 //Send Data to DB
                 String id = databaseReference.push().getKey();
-                OrderData orderData = new OrderData(id,String.valueOf(cartManager.getTotal()),saddress,cartManager.getStoreId(),UserManager.getUID(),CONST.ORDERSTATUS_PLACED);
+                OrderData orderData = new OrderData(id,String.valueOf(cartManager.getTotal()),saddress,storeName.getText().toString(),String.valueOf(cartManager.getOrderList().size()),cartManager.getStoreId(),UserManager.getUID(),CONST.ORDERSTATUS_PLACED);
                 databaseReference.child(id).setValue(orderData).addOnCompleteListener(task -> {
                     if(task.isSuccessful())
                     {

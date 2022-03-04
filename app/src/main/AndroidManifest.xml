@@ -9,8 +9,17 @@
         android:roundIcon="@mipmap/shop"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".OrderConfirmActivity"
-            android:theme="@style/AppTheme2"/>
+        <activity android:name=".SplashActivity" android:theme="@style/AppTheme2">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".OrderHistoryViewActivity" />
+        <activity android:name=".OrderHistoryActivity" />
+        <activity
+            android:name=".OrderConfirmActivity"
+            android:theme="@style/AppTheme2" />
         <activity android:name=".ForgotActivity" />
         <activity
             android:name=".RegisterStoreActivity"
@@ -25,11 +34,6 @@
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme2" />
         <activity android:name=".LoginActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 

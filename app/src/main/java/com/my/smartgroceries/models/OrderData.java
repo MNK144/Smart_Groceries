@@ -4,6 +4,8 @@ public class OrderData {
     String id;
     String itemtotal;
     String address;
+    String storename;
+    String itemcount;
     String storeid;
     String userid;
     String status;
@@ -11,10 +13,12 @@ public class OrderData {
 
     public OrderData() {
     }
-    public OrderData(String id, String itemtotal, String address, String storeid, String userid, String status) {
+    public OrderData(String id, String itemtotal, String address, String storename, String itemcount, String storeid, String userid, String status) {
         this.id = id;
         this.itemtotal = itemtotal;
         this.address = address;
+        this.storename = storename;
+        this.itemcount = itemcount;
         this.storeid = storeid;
         this.userid = userid;
         this.status = status;
@@ -37,6 +41,18 @@ public class OrderData {
     }
     public void setAddress(String address) {
         this.address = address;
+    }
+    public String getStorename() {
+        return storename;
+    }
+    public void setStorename(String storename) {
+        this.storename = storename;
+    }
+    public String getItemcount() {
+        return itemcount;
+    }
+    public void setItemcount(String itemcount) {
+        this.itemcount = itemcount;
     }
     public String getStoreid() {
         return storeid;

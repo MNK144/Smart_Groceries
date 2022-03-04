@@ -42,6 +42,12 @@ public class CartManager {
     {
         return storeid.equals("NULL");
     }
+    public void resetCartManager()
+    {
+        orderList.clear();
+        total = 0;
+        storeid = "NULL";
+    }
 
     //Item Total Management
     private int total;

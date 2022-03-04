@@ -9,6 +9,7 @@
 
     <color name="fontPrimary">#282a35</color>
     <color name="fontSecondary">#728DAC</color>
+    <color name="background1">#f1f1f1</color>
 
     <color name="inputBox">#EBEEF0</color>
 

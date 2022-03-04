@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SplashActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true">
+        <ImageView
+            android:id="@+id/splashimg"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@mipmap/shop"
+            android:layout_centerHorizontal="true"/>
+        <TextView
+            android:id="@+id/splashtxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Smart Groceries"
+            android:textColor="@color/fontPrimary"
+            android:textSize="32dp"
+            android:fontFamily="@font/roboto_med"
+            android:layout_centerHorizontal="true"
+            android:layout_below="@id/splashimg"
+            android:layout_marginTop="8dp" />
+    </RelativeLayout>
+</RelativeLayout>
