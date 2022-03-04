@@ -101,6 +101,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyHolder
                 Toast.makeText(context,"Can not add more than available in Stock",Toast.LENGTH_SHORT).show();
             } else {
                 data.setSelectedQuantity(data.getSelectedQuantity()+1);
+                Log.d("ProductAdd","Item="+data.getName()+", Quantity="+data.getSelectedQuantity());
                 cartManager.addToTotal(Integer.valueOf(data.getPrice()));
                 if (isAdapterForCart) cartUpdateListener.onCartValueChange();
                 holder.qty.setText("" + data.getSelectedQuantity());
@@ -112,7 +113,7 @@ public class ProductAdapter extends RecyclerView.Adapter<ProductAdapter.MyHolder
             if (isAdapterForCart) cartUpdateListener.onCartValueChange();
 
             if(data.getSelectedQuantity()==0) {
-                orderList.remove(position);
+                orderList.remove(data);
                 if(orderList.size()==0) {
                     cartManager.removeStoreID();
                     if(isAdapterForCart) cartUpdateListener.onCartEmpty();

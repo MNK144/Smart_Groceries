@@ -37,7 +37,8 @@ public class StoreProductsActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     ProductAdapter productAdapter;
     List<ProductData> dataList = new ArrayList<>();
-    HashMap<String,Integer> orderListQuantity = new HashMap<>();
+    HashMap<String,ProductData> orderListQuantity = new HashMap<>();
+    List<ProductData> orderList;
 
     DatabaseReference databaseReference;
     @Override
@@ -65,9 +66,12 @@ public class StoreProductsActivity extends AppCompatActivity {
                 {
                     ProductData data = snapshot1.getValue(ProductData.class);
                     String id = data.getId();
-                    if(orderListQuantity.containsKey(id))
-                        data.setSelectedQuantity(orderListQuantity.get(id));
-                    dataList.add(data);
+                    if(orderListQuantity.containsKey(id)) {
+                        //data.setSelectedQuantity(orderListQuantity.get(id));
+                        dataList.add(orderListQuantity.get(id));
+                    }
+                    else
+                        dataList.add(data);
                 }
                 productAdapter.notifyDataSetChanged();
             }
@@ -82,9 +86,10 @@ public class StoreProductsActivity extends AppCompatActivity {
 
     private void loadOrderListQuantity()
     {
-        for(ProductData data: CartManager.getInstance().getOrderList())
+        orderList = CartManager.getInstance().getOrderList();
+        for(ProductData data: orderList)
         {
-            orderListQuantity.put(data.getId(),data.getSelectedQuantity());
+            orderListQuantity.put(data.getId(),data);
         }
     }
 
@@ -103,6 +108,7 @@ public class StoreProductsActivity extends AppCompatActivity {
         actionbarText = findViewById(R.id.actionbarMainText);
         actionbarText.setText(name);
         actionbarEditText = findViewById(R.id.actionbarMainEditText);
+        actionbarEditText.setHint("Search Products");
         actionbarSearch = findViewById(R.id.actionBarSearch);
         actionbarSearch.setOnClickListener(view -> {
             if(flagSearch)

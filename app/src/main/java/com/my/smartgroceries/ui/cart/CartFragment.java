@@ -148,11 +148,17 @@ public class CartFragment extends Fragment {
     @Override
     public void onResume() {
         super.onResume();
-        if (pauseflag) {
-            checkCart();
+
+        checkCart();
+        if(productAdapter!=null) {
             productAdapter.notifyDataSetChanged();
             updateTotal();
-            pauseflag = false;
         }
+//        if (pauseflag) {
+//            checkCart();
+//            productAdapter.notifyDataSetChanged();
+//            updateTotal();
+//            pauseflag = false;
+//        }
     }
 }
