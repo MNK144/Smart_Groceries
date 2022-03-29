@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/navigation_home"
-        android:name="com.my.smartgroceries.ui.home.HomeFragment"
+        android:name="com.my.smartgroceries.CustomerDashboard.home.HomeFragment"
         android:label="@string/title_home"
-        tools:layout="@layout/fragment_home" />
+        tools:layout="@layout/fragment_customer_home" />
 
     <fragment
         android:id="@+id/navigation_cart"
-        android:name="com.my.smartgroceries.ui.cart.CartFragment"
+        android:name="com.my.smartgroceries.CustomerDashboard.cart.CartFragment"
         android:label="@string/title_cart"
-        tools:layout="@layout/fragment_cart" />
+        tools:layout="@layout/fragment_customer_cart" />
 
     <fragment
         android:id="@+id/navigation_account"
-        android:name="com.my.smartgroceries.ui.account.AccountFragment"
+        android:name="com.my.smartgroceries.CustomerDashboard.account.AccountFragment"
         android:label="@string/title_account"
-        tools:layout="@layout/fragment_account" />
+        tools:layout="@layout/fragment_customer_account" />
 </navigation>

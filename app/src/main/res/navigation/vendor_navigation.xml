@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation2"
+    app:startDestination="@+id/navigation_orders">
+
+    <fragment
+        android:id="@+id/navigation_orders"
+        android:name="com.my.smartgroceries.VendorDashboard.orders.OrdersFragment"
+        android:label="@string/title_orders"
+        tools:layout="@layout/fragment_vendor_orders" />
+
+    <fragment
+        android:id="@+id/navigation_inventory"
+        android:name="com.my.smartgroceries.VendorDashboard.inventory.InventoryFragment"
+        android:label="@string/title_inventory"
+        tools:layout="@layout/fragment_vendor_inventory" />
+
+    <fragment
+        android:id="@+id/navigation_vaccounts"
+        android:name="com.my.smartgroceries.VendorDashboard.account.AccountFragment"
+        android:label="@string/title_account"
+        tools:layout="@layout/fragment_vendor_account" />
+</navigation>

@@ -1,4 +1,4 @@
-package com.my.smartgroceries.ui.account;
+package com.my.smartgroceries.CustomerDashboard.account;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -25,14 +24,14 @@ public class AccountFragment extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
 
-        View root = inflater.inflate(R.layout.fragment_account, container, false);
+        View root = inflater.inflate(R.layout.fragment_customer_account, container, false);
 
         Button test = root.findViewById(R.id.ata);
         test.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //Intent i = new Intent(getContext(), TestActivity.class);
-                //startActivity(i);
+                Intent i = new Intent(getContext(), TestActivity.class);
+                startActivity(i);
             }
         });
 

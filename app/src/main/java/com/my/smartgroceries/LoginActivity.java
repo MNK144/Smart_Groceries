@@ -144,6 +144,7 @@ public class LoginActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()) {
                     userData = dataSnapshot.getValue(UserData.class);
+                    Log.d("Debug",userData.getName());
                     loginSuccess();
                 }
                 else {
@@ -162,7 +163,16 @@ public class LoginActivity extends AppCompatActivity {
     {
         Log.d("UserManager","Accessed Login Successful");
         UserManager.Login(UID,userData,LoginActivity.this);
-        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+        Intent intent;
+        Log.d("Debug",""+userData.isVendorAccount());
+        if(userData.isVendorAccount())
+        {
+            intent = new Intent(LoginActivity.this, VendorHomeActivity.class);
+        }
+        else
+        {
+            intent = new Intent(LoginActivity.this, HomeActivity.class);
+        }
         startActivity(intent);
         finish();
     }

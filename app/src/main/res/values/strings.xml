@@ -7,4 +7,7 @@
     <string name="title_home">Home</string>
     <string name="title_cart">Cart</string>
     <string name="title_account">Account</string>
+    <string name="title_activity_vendor_home">VendorHomeActivity</string>
+    <string name="title_orders">Orders</string>
+    <string name="title_inventory">Inventory</string>
 </resources>

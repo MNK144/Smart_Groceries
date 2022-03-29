@@ -1,4 +1,4 @@
-package com.my.smartgroceries.ui.cart;
+package com.my.smartgroceries.CustomerDashboard.cart;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -48,7 +48,7 @@ public class CartFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_cart, container, false);
+        View root = inflater.inflate(R.layout.fragment_customer_cart, container, false);
         cartEmptyLayout = root.findViewById(R.id.cartEmptyLayout);
         cartPresentLayout = root.findViewById(R.id.cartPresentLayout);
         cartManager = CartManager.getInstance();

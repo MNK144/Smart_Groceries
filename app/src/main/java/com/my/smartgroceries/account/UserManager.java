@@ -3,11 +3,13 @@ package com.my.smartgroceries.account;
 import android.content.Context;
 import android.widget.Toast;
 
+import com.my.smartgroceries.models.StoreData;
 import com.my.smartgroceries.models.UserData;
 
 public class UserManager {
     private static String UID;
     private static UserData userData;
+//    private static StoreData storeData;
     //private static UserLoad userLoad;
     public static Boolean isUserLoaded=false;
     public static Boolean User_Active = false;
@@ -35,6 +37,15 @@ public class UserManager {
         //userLoad.check(userData);
     }
 
+//    public static void setStoreData(StoreData storeData)
+//    {
+//        UserManager.storeData = storeData;
+//    }
+//    public static StoreData getStoreData()
+//    {
+//        return storeData;
+//    }
+
     public static void Login(final String UID,final UserData userData,final Context context)
     {
         UserManager.UID = UID;
@@ -56,6 +67,7 @@ public class UserManager {
         User_Active = false;
         UID = null;
         userData = null;
+//        storeData = null;
         isUserLoaded=false;
         logoutSession(context);
     }

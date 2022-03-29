@@ -74,7 +74,7 @@ public class SplashActivity extends AppCompatActivity {
                     UserData userData = dataSnapshot.getValue(UserData.class);
                     UserManager.setUserData(userData);
                     Log.d("SessionLogin","Login Success");
-                    login();
+                    login(userData.isVendorAccount());
                 }
                 else {
                     Toast.makeText(getApplicationContext(), "Login Failed: Failed to get User Data",Toast.LENGTH_LONG).show();
@@ -88,9 +88,17 @@ public class SplashActivity extends AppCompatActivity {
             }
         });
     }
-    private void login()
+    private void login(boolean vendor)
     {
-        Intent i = new Intent(getApplicationContext(),HomeActivity.class);
+        Intent i;
+        if(vendor)
+        {
+            i = new Intent(getApplicationContext(),VendorHomeActivity.class);
+        }
+        else
+        {
+            i = new Intent(getApplicationContext(),HomeActivity.class);
+        }
         startActivity(i);
         finish();
     }

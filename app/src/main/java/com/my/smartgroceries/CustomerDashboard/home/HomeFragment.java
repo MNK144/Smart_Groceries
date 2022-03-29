@@ -1,10 +1,9 @@
-package com.my.smartgroceries.ui.home;
+package com.my.smartgroceries.CustomerDashboard.home;
 
 import android.content.Context;
 import android.os.Bundle;
 import android.text.InputFilter;
 import android.text.InputType;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,7 +39,7 @@ public class HomeFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        View root = inflater.inflate(R.layout.fragment_home, container, false);
+        View root = inflater.inflate(R.layout.fragment_customer_home, container, false);
         storelist = root.findViewById(R.id.storelist);
         storelist.setHasFixedSize(true);
         storelist.setLayoutManager(new LinearLayoutManager(getContext()));
