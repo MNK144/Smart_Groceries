@@ -9,16 +9,17 @@
         android:roundIcon="@mipmap/shop"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name=".VendorOrderViewActivity"></activity>
         <activity
             android:name=".VendorHomeActivity"
             android:label="@string/title_activity_vendor_home"
-            android:theme="@style/AppTheme2">
-        </activity>
+            android:theme="@style/AppTheme2"></activity>
         <activity
             android:name=".SplashActivity"
             android:theme="@style/AppTheme2">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -40,7 +41,7 @@
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme2" />
-        <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".LoginActivity" />
     </application>
 
 </manifest>

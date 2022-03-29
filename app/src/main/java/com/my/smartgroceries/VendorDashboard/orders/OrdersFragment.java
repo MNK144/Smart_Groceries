@@ -44,7 +44,7 @@ public class OrdersFragment extends Fragment {
         recyclerView = root.findViewById(R.id.vendorOrders);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
-        orderAdapter = new OrderAdapter(orderList, getContext());
+        orderAdapter = new OrderAdapter(orderList, getContext(),true);
         recyclerView.setAdapter(orderAdapter);
         databaseReference = FirebaseDatabase.getInstance().getReference(CONST.DB_ORDERDATA);
         databaseReference.addValueEventListener(new ValueEventListener() {

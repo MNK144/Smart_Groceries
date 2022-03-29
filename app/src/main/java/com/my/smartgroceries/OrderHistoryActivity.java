@@ -37,7 +37,7 @@ public class OrderHistoryActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.orderHistoryList);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        orderAdapter = new OrderAdapter(orderList,OrderHistoryActivity.this);
+        orderAdapter = new OrderAdapter(orderList,OrderHistoryActivity.this,false);
         recyclerView.setAdapter(orderAdapter);
         databaseReference = FirebaseDatabase.getInstance().getReference(CONST.DB_ORDERDATA);
         databaseReference.addValueEventListener(new ValueEventListener() {

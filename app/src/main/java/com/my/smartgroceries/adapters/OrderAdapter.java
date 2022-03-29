@@ -7,22 +7,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.my.smartgroceries.OrderHistoryViewActivity;
 import com.my.smartgroceries.R;
+import com.my.smartgroceries.VendorOrderViewActivity;
 import com.my.smartgroceries.models.OrderData;
+
 import java.util.List;
 
 public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyHolder> {
 
     List<OrderData> orderList;
     Context context;
+    boolean isVendor = false;
 
-    public OrderAdapter(List<OrderData> orderList, Context context) {
+    public OrderAdapter(List<OrderData> orderList, Context context, boolean isVendor) {
         this.orderList = orderList;
         this.context = context;
+        this.isVendor = isVendor;
     }
 
     @NonNull
@@ -35,7 +38,9 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyHolder> {
     @Override
     public void onBindViewHolder(@NonNull MyHolder holder, int position) {
         OrderData orderData = orderList.get(position);
-        holder.orderStoreName.setText(orderData.getStorename());
+        holder.orderStoreName.setTextSize( (isVendor)?18:20 );
+        holder.orderStoreName.setText( (isVendor)?orderData.getAddress():orderData.getStorename() );
+
         holder.orderStatus.setText(orderData.getStatus());
         holder.orderItems.setText("Order Items: "+orderData.getItemcount());
         holder.orderTotal.setText("Order Total: ₹"+orderData.getItemtotal());
@@ -43,7 +48,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.MyHolder> {
             @Override
             public void onClick(View view) {
                 //Toast.makeText(context,"Coming Soon...",Toast.LENGTH_LONG).show();
-                Intent i = new Intent(context, OrderHistoryViewActivity.class);
+                Intent i = new Intent(context, (isVendor)? VendorOrderViewActivity.class:OrderHistoryViewActivity.class);
                 i.putExtra("id",orderData.getId());
                 context.startActivity(i);
             }
