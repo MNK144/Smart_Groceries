@@ -37,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:text="Name: Manank Patel"
+                android:text="Name: John Doe"
                 android:fontFamily="@font/roboto_med"
                 android:textColor="@color/fontSecondary"
                 android:textSize="18sp"
@@ -81,7 +81,7 @@
                 android:textColor="@color/fontSecondary"
                 android:maxLines="4"
                 android:fontFamily="@font/roboto_med"
-                android:text="H-403 Satya Residency,\nNew Ranip,\nAhmedabad-382480"/>
+                android:text="A-123 XYZ Apartments,\nNaranpura,\nAhmedabad-380013"/>
         </LinearLayout>
 
         <TextView

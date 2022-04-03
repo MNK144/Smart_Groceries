@@ -88,7 +88,7 @@
                         android:id="@+id/storeaddr"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:text="016 Ground Floor, Satya Residency, New Ranip, Ahmedabad, Gujarat-382480"
+                        android:text="012 Ground Floor, XYZ Apartments, Naranpura, Ahmedabad, Gujarat-380013"
                         android:fontFamily="@font/roboto_light"
                         android:textSize="16sp"
                         android:maxLines="3"/>
