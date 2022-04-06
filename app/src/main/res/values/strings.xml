@@ -10,4 +10,15 @@
     <string name="title_activity_vendor_home">VendorHomeActivity</string>
     <string name="title_orders">Orders</string>
     <string name="title_inventory">Inventory</string>
+
+    <string-array name="units">
+        <item>Gram</item>
+        <item>kg</item>
+        <item>mg</item>
+        <item>ltr</item>
+        <item>ml</item>
+        <item>Pack</item>
+        <item>Units</item>
+    </string-array>
+
 </resources>

@@ -9,11 +9,12 @@
         android:roundIcon="@mipmap/shop"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".VendorOrderViewActivity"></activity>
+        <activity android:name=".AddProductActivity"></activity>
+        <activity android:name=".VendorOrderViewActivity" />
         <activity
             android:name=".VendorHomeActivity"
             android:label="@string/title_activity_vendor_home"
-            android:theme="@style/AppTheme2"></activity>
+            android:theme="@style/AppTheme2" />
         <activity
             android:name=".SplashActivity"
             android:theme="@style/AppTheme2">
