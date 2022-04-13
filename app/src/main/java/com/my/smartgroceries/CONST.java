@@ -18,7 +18,6 @@ public class CONST {
     public static final String STATUS_NULL = "NULL";
 
     public static final String ORDERSTATUS_PLACED = "Order Placed";
-    public static final String ORDERSTATUS_PROCESSING = "Order Processing";
     public static final String ORDERSTATUS_DELIVERED = "Order Delivered";
     public static final String ORDERSTATUS_CANCELED = "Order Canceled";
 }

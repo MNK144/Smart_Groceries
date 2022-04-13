@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#00000000">
+
+    <RelativeLayout
+        android:id="@+id/rlmain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:background="@color/white">
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginLeft="25dip"
+            android:layout_marginTop="10dip">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:text="Update Available Stock:"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/fontPrimary"
+                android:textSize="20dip"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/relativeLayout1"
+            android:layout_alignRight="@+id/relativeLayout1"
+            android:layout_below="@+id/relativeLayout1"
+            android:layout_marginTop="5dip"></RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/relativeLayout3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/relativeLayout2"
+            android:layout_below="@+id/relativeLayout2">
+
+            <TextView
+                android:id="@+id/dialog_item"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:text="Message"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/fontPrimary"
+                android:textSize="17dip" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/stockLayout"
+            android:layout_width="wrap_content"
+            android:layout_height="60dp"
+            android:orientation="horizontal"
+            android:layout_centerHorizontal="true"
+            android:padding="5dp"
+            android:layout_below="@id/relativeLayout3">
+
+            <Button
+                android:id="@+id/dialog_minus"
+                android:layout_width="45dip"
+                android:layout_height="match_parent"
+                android:text="-"
+                android:background="@drawable/button1"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+            <EditText
+                android:id="@+id/dialog_stock"
+                android:layout_width="60dp"
+                android:layout_height="match_parent"
+                android:hint="250"
+                android:textAlignment="center"
+                android:inputType="number"
+                android:maxLength="3"
+                android:background="@drawable/inputbox1"/>
+            <Button
+                android:id="@+id/dialog_plus"
+                android:layout_width="45dip"
+                android:layout_height="match_parent"
+                android:text="+"
+                android:background="@drawable/button1"
+                android:textColor="@color/white"
+                android:textSize="30sp" />
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/dialog_confirm"
+            android:layout_width="150dip"
+            android:layout_height="45dip"
+            android:layout_below="@id/stockLayout"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="8dp"
+            android:layout_marginTop="2dp"
+            android:text="Confirm"
+            android:background="@drawable/button1"
+            android:textColor="@color/white"
+            android:textSize="15sp" />
+
+    </RelativeLayout>
+</RelativeLayout>

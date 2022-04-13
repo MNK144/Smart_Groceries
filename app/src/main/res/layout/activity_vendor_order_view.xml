@@ -176,7 +176,7 @@
                     android:textAlignment="textStart"
                     android:textColor="@color/fontPrimary"
                     android:textSize="15dp"
-                    android:text="Order Processing"/>
+                    android:text="Order Placed"/>
             </LinearLayout>
 
             <Button
@@ -189,7 +189,7 @@
                 android:textAllCaps="false"
                 android:fontFamily="@font/roboto_med"
                 android:textSize="18sp"
-                android:text="Cancel Order"/>
+                android:text="Update Status"/>
 
         </LinearLayout>
 

@@ -26,15 +26,6 @@ public class AccountFragment extends Fragment {
 
         View root = inflater.inflate(R.layout.fragment_customer_account, container, false);
 
-        Button test = root.findViewById(R.id.ata);
-        test.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent i = new Intent(getContext(), TestActivity.class);
-                startActivity(i);
-            }
-        });
-
         orderHistory = root.findViewById(R.id.orderhistory);
         orderHistory.setOnClickListener(view -> {
             Intent i = new Intent(getContext(), OrderHistoryActivity.class);

@@ -56,7 +56,7 @@ public class InventoryFragment extends Fragment {
         recyclerView.setAdapter(inventoryAdapter);
 
         DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(CONST.DB_PRODUCTDATA).child(UserManager.getUserData().getRefStoreData());
-        databaseReference.addListenerForSingleValueEvent(new ValueEventListener() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 inventoryList.clear();

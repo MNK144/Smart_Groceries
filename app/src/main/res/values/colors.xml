@@ -12,6 +12,8 @@
     <color name="background1">#f1f1f1</color>
 
     <color name="inputBox">#EBEEF0</color>
+    <color name="inputBoxDark">#e2e6e9</color>
+
     <color name="redButton">#b30000</color>
     <color name="blueButton">#001a33</color>
     <color name="greenButton">#0a8f63</color>
