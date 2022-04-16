@@ -5,8 +5,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.app.Dialog;
 import android.os.Bundle;
 import android.text.Html;
+import android.view.Window;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -64,12 +66,49 @@ public class VendorOrderViewActivity extends AppCompatActivity {
                 deliveryAddress.setText(orderData.getAddress());
                 if(orderData.getStatus().equals(CONST.ORDERSTATUS_DELIVERED)||orderData.getStatus().equals(CONST.ORDERSTATUS_CANCELED))
                 {
-                    orderAction.setText("Call Vendor");
+                    orderAction.setEnabled(false);
                 }
                 else
                 {
-                    orderAction.setText("Cancel Order");
+                    orderAction.setEnabled(true);
                 }
+                orderAction.setOnClickListener(view -> {
+                    final Dialog dialog = new Dialog(VendorOrderViewActivity.this);
+                    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                    dialog.setContentView(R.layout.dialogue_update_order_status);
+                    Button completed = dialog.findViewById(R.id.dialog_ok);
+                    Button cancelled = dialog.findViewById(R.id.dialog_cancel);
+                    DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference(CONST.DB_ORDERDATA).child(orderid);
+                    completed.setOnClickListener(view1 -> {
+                        view1.setEnabled(false);
+                        databaseReference.child("status").setValue(CONST.ORDERSTATUS_DELIVERED)
+                                .addOnCompleteListener(task -> {
+                                    if(!task.isSuccessful())
+                                        Toast.makeText(getApplicationContext(),"Failed to Update Data",Toast.LENGTH_SHORT).show();
+                                    else
+                                    {
+                                        view.setEnabled(false);
+                                        orderStatus.setText(CONST.ORDERSTATUS_DELIVERED);
+                                    }
+                                    dialog.dismiss();
+                                });
+                    });
+                    cancelled.setOnClickListener(view1 -> {
+                        view1.setEnabled(false);
+                        databaseReference.child("status").setValue(CONST.ORDERSTATUS_CANCELED)
+                                .addOnCompleteListener(task -> {
+                                    if(!task.isSuccessful())
+                                        Toast.makeText(getApplicationContext(),"Failed to Update Data",Toast.LENGTH_SHORT).show();
+                                    else
+                                    {
+                                        view.setEnabled(false);
+                                        orderStatus.setText(CONST.ORDERSTATUS_CANCELED);
+                                    }
+                                    dialog.dismiss();
+                                });
+                    });
+                    dialog.show();
+                });
                 setUserData();
             }
             @Override

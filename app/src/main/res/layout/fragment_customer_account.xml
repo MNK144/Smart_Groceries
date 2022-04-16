@@ -44,13 +44,4 @@
         android:textSize="17sp"
         android:text="Logout"/>
 
-    <Button
-        android:id="@+id/ata"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="TestActivity"
-        android:layout_centerHorizontal="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"/>
-
 </RelativeLayout>
