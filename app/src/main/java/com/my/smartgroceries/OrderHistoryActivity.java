@@ -27,6 +27,7 @@ public class OrderHistoryActivity extends AppCompatActivity {
     OrderAdapter orderAdapter;
     List<OrderData> orderList = new ArrayList<>();
     DatabaseReference databaseReference;
+    boolean isVendor;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,10 +35,12 @@ public class OrderHistoryActivity extends AppCompatActivity {
         setContentView(R.layout.activity_order_history);
         getSupportActionBar().setTitle(Html.fromHtml("<font color=#282a35>" + "Order History" + "</font>"));
 
+        isVendor = getIntent().getBooleanExtra("isVendor",false);
+
         recyclerView = findViewById(R.id.orderHistoryList);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
-        orderAdapter = new OrderAdapter(orderList,OrderHistoryActivity.this,false);
+        orderAdapter = new OrderAdapter(orderList,OrderHistoryActivity.this,isVendor);
         recyclerView.setAdapter(orderAdapter);
         databaseReference = FirebaseDatabase.getInstance().getReference(CONST.DB_ORDERDATA);
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -47,7 +50,7 @@ public class OrderHistoryActivity extends AppCompatActivity {
                 for(DataSnapshot snapshot1: snapshot.getChildren())
                 {
                     OrderData data = snapshot1.getValue(OrderData.class);
-                    if(data.getUserid().equals(UserManager.getUID()))
+                    if(data.getStoreid().equals(UserManager.getUserData().getRefStoreData()))
                         orderList.add(data);
                 }
                 orderAdapter.notifyDataSetChanged();

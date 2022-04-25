@@ -16,19 +16,47 @@
         android:layout_marginTop="16dp"
         android:layout_marginStart="12dp"/>
 
-<!--    <Button-->
-<!--        android:id="@+id/orderhistory"-->
-<!--        android:layout_width="320dp"-->
-<!--        android:layout_height="55dp"-->
-<!--        android:layout_centerHorizontal="true"-->
-<!--        android:background="@drawable/button1"-->
-<!--        android:textColor="@color/white"-->
-<!--        android:textAllCaps="false"-->
-<!--        android:fontFamily="@font/roboto_med"-->
-<!--        android:layout_marginTop="20dp"-->
-<!--        android:layout_below="@id/t1"-->
-<!--        android:textSize="17sp"-->
-<!--        android:text="Order History"/>-->
+    <Button
+        android:id="@+id/orderhistory"
+        android:layout_width="320dp"
+        android:layout_height="55dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button1"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:fontFamily="@font/roboto_med"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/t1"
+        android:textSize="17sp"
+        android:text="Order History"/>
+
+    <Button
+        android:id="@+id/editstore"
+        android:layout_width="320dp"
+        android:layout_height="55dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button1"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:fontFamily="@font/roboto_med"
+        android:layout_marginTop="12dp"
+        android:layout_below="@id/orderhistory"
+        android:textSize="17sp"
+        android:text="Edit Store Details"/>
+
+    <Button
+        android:id="@+id/editaccount"
+        android:layout_width="320dp"
+        android:layout_height="55dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button1"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:fontFamily="@font/roboto_med"
+        android:layout_marginTop="12dp"
+        android:layout_below="@id/editstore"
+        android:textSize="17sp"
+        android:text="Edit Account Details"/>
 
     <Button
         android:id="@+id/logout"
@@ -40,7 +68,7 @@
         android:textAllCaps="false"
         android:fontFamily="@font/roboto_med"
         android:layout_marginTop="12dp"
-        android:layout_below="@id/t1"
+        android:layout_below="@id/editaccount"
         android:textSize="17sp"
         android:text="Logout"/>
 

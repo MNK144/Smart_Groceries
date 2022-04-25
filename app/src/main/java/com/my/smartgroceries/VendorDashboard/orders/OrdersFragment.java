@@ -4,6 +4,8 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,7 +56,7 @@ public class OrdersFragment extends Fragment {
                 for(DataSnapshot snapshot1: snapshot.getChildren())
                 {
                     OrderData data = snapshot1.getValue(OrderData.class);
-                    if(data.getStoreid().equals(UserManager.getUserData().getRefStoreData()))
+                    if(data.getStoreid().equals(UserManager.getUserData().getRefStoreData()) && data.getStatus().equals(CONST.ORDERSTATUS_PLACED))
                         orderList.add(data);
                 }
                 orderAdapter.notifyDataSetChanged();
@@ -65,6 +67,16 @@ public class OrdersFragment extends Fragment {
             }
         });
 
+        manageActionBar(root);
         return root;
+    }
+
+    private void manageActionBar(View root) {
+        TextView actionbarText;
+        ImageView actionbarSearch;
+        actionbarText = root.findViewById(R.id.actionbarMainText);
+        actionbarText.setText("Active Orders");
+        actionbarSearch = root.findViewById(R.id.actionBarSearch);
+        actionbarSearch.setVisibility(View.INVISIBLE);
     }
 }

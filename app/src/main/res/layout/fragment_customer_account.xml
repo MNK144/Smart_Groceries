@@ -31,7 +31,7 @@
         android:text="Order History"/>
 
     <Button
-        android:id="@+id/logout"
+        android:id="@+id/editaccount"
         android:layout_width="320dp"
         android:layout_height="55dp"
         android:layout_centerHorizontal="true"
@@ -41,6 +41,20 @@
         android:fontFamily="@font/roboto_med"
         android:layout_marginTop="12dp"
         android:layout_below="@id/orderhistory"
+        android:textSize="17sp"
+        android:text="Edit Account Details"/>
+
+    <Button
+        android:id="@+id/logout"
+        android:layout_width="320dp"
+        android:layout_height="55dp"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/button1"
+        android:textColor="@color/white"
+        android:textAllCaps="false"
+        android:fontFamily="@font/roboto_med"
+        android:layout_marginTop="12dp"
+        android:layout_below="@id/editaccount"
         android:textSize="17sp"
         android:text="Logout"/>
 

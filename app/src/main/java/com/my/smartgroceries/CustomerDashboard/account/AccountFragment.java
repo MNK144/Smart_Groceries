@@ -10,6 +10,7 @@ import android.widget.Button;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
+import com.my.smartgroceries.EditAccountActivity;
 import com.my.smartgroceries.LoginActivity;
 import com.my.smartgroceries.OrderHistoryActivity;
 import com.my.smartgroceries.R;
@@ -19,7 +20,7 @@ import com.my.smartgroceries.account.UserManager;
 
 public class AccountFragment extends Fragment {
 
-    Button orderHistory,logout;
+    Button orderHistory,editaccount,logout;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -29,6 +30,12 @@ public class AccountFragment extends Fragment {
         orderHistory = root.findViewById(R.id.orderhistory);
         orderHistory.setOnClickListener(view -> {
             Intent i = new Intent(getContext(), OrderHistoryActivity.class);
+            startActivity(i);
+        });
+
+        editaccount = root.findViewById(R.id.editaccount);
+        editaccount.setOnClickListener(view -> {
+            Intent i = new Intent(getContext(), EditAccountActivity.class);
             startActivity(i);
         });
 
