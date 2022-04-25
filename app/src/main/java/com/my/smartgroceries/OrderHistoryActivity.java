@@ -50,8 +50,16 @@ public class OrderHistoryActivity extends AppCompatActivity {
                 for(DataSnapshot snapshot1: snapshot.getChildren())
                 {
                     OrderData data = snapshot1.getValue(OrderData.class);
-                    if(data.getStoreid().equals(UserManager.getUserData().getRefStoreData()))
-                        orderList.add(data);
+                    if(isVendor)
+                    {
+                        if(data.getStoreid().equals(UserManager.getUserData().getRefStoreData()))
+                            orderList.add(data);
+                    }
+                    else
+                    {
+                        if(data.getUserid().equals(UserManager.getUID()))
+                            orderList.add(data);
+                    }
                 }
                 orderAdapter.notifyDataSetChanged();
             }
