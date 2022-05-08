@@ -15,7 +15,6 @@ import com.my.smartgroceries.LoginActivity;
 import com.my.smartgroceries.OrderHistoryActivity;
 import com.my.smartgroceries.R;
 import com.my.smartgroceries.SpecialComponents.CartManager;
-import com.my.smartgroceries.TestActivity;
 import com.my.smartgroceries.account.UserManager;
 
 public class AccountFragment extends Fragment {

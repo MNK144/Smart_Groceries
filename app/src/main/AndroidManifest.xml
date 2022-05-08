@@ -39,7 +39,6 @@
         <activity
             android:name=".StoreProductsActivity"
             android:theme="@style/AppTheme2" />
-        <activity android:name=".TestActivity" />
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
